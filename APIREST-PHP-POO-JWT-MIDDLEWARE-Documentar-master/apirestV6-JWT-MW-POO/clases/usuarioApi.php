@@ -14,7 +14,7 @@ class usuarioApi extends Usuario implements IApiUsable
             $NuevaRespuesta = $response->withJson($objDelaRespuesta, 500); 
         }else
         {
-            $NuevaRespuesta = $response->withJson($elCd, 200); 
+            $NuevaRespuesta = $response->withJson($elUsuario, 200); 
         }     
         return $NuevaRespuesta;
     }
@@ -51,7 +51,7 @@ class usuarioApi extends Usuario implements IApiUsable
             $archivos['foto']->moveTo($destino.$titulo.".".$extension[0]);
         }       
         //$response->getBody()->write("se guardo el cd");
-        $objDelaRespuesta->respuesta="Se guardo el CD.";   
+        $objDelaRespuesta->respuesta="Se guardo el usuario.";   
         return $response->withJson($objDelaRespuesta, 200);
     }
       public function BorrarUno($request, $response, $args) {

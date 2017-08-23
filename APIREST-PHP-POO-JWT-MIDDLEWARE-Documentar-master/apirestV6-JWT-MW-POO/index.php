@@ -46,6 +46,19 @@ $app->group('/cd', function () {
      
 })->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORS8080');
 
+$app->group('/usuario', function () {
+  
+   $this->get('/', \usuarioApi::class . ':traerTodos')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  
+   $this->get('/{id}', \usuarioApi::class . ':traerUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+ 
+   $this->post('/', \usuarioApi::class . ':CargarUno');
+ 
+   $this->delete('/', \usuarioApi::class . ':BorrarUno');
+ 
+   $this->put('/', \usuarioApi::class . ':ModificarUno');
+      
+ })->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORS8080');
 
 
 $app->run();
